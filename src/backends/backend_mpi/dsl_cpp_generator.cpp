@@ -10,7 +10,9 @@ namespace spmpi {
     /* generate is the main entrypoint function of the dsl_cpp_generator which generates the cpp code for GraphDSL*/
     bool dsl_cpp_generator::generate() 
     {   
-        cout<<"FRONTEND VALUES "<<frontEndContext.getFuncList().front()->getBlockStatement()->returnStatements().size();    //openFileforOutput();
+        // cout<<"FRONTEND VALUES "<<frontEndContext.getFuncList().front()->getBlockStatement()->returnStatements().size();    //openFileforOutput();
+        std::cout << "In MPI generate" << '\n';
+
         if (!openFileforOutput())
             return false;
         generation_begin();

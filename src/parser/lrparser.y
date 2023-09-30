@@ -571,14 +571,16 @@ int main(int argc,char **argv)
    int error=yyparse();
    printf("error val %d\n",error);
 
+   printf("\nParsed Successfully\n");
+
 
 	if(error!=1)
 	{
      //TODO: redirect to different backend generator after comparing with the 'b' option
-    std::cout << "at 1" << std::endl;
+    /* std::cout << "at 1" << std::endl; */
 	stBuilder.buildST(frontEndContext.getFuncList());
 	frontEndContext.setDynamicLinkFuncs(stBuilder.getDynamicLinkedFuncs());
-	std::cout << "at 2" << std::endl;
+	/* std::cout << "at 2" << std::endl; */
 
 	if(staticGen)
 	  {
@@ -628,7 +630,9 @@ int main(int argc,char **argv)
       } 
 	  else if (strcmp(backendTarget, "mpi") == 0) {
         spmpi::dsl_cpp_generator cpp_backend;
-		std::cout<< "size:" << frontEndContext.getFuncList().size() << '\n';
+		/* std::cout<< "size:" << frontEndContext.getFuncList().size() << '\n'; */
+
+		std::cout << "GENERATING MPI CODE" << std::endl;
         cpp_backend.setFileName(fileName);
         cpp_backend.generate();
       } 
